@@ -1,0 +1,69 @@
+    <!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Asmoderos | Login</title>
+
+        <!-- Favicons-->
+        <link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" type="image/x-icon" href="../static/img/apple-touch-icon-57x57-precomposed.png">
+
+
+        <!-- GOOGLE WEB FONT -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
+
+        <!-- BASE CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/pageStyle.css" rel="stylesheet">
+        <link href="icon_fonts/css/all_icons.min.css" rel="stylesheet">
+
+
+        <link href="css/login_register.css" rel="stylesheet">
+    </head>
+
+    <body id="login_bg">
+
+    <nav id="menu" class="fake_menu"></nav>
+
+    <div id="preloader">
+        <div data-loader="circle-side"></div>
+    </div>
+    <!-- End Preload -->
+
+    <div id="login-form-wrapper">
+        <aside>
+            <figure>
+                <a href="index"> Asmoderos </a>
+            </figure>
+            <form action="/authenticate" method="post">
+                <div class="login-form">
+                        <span class="input">
+                        <input class="input_field" type="email" th:field="*{userModel.email}" autocomplete="off"
+                               placeholder="Your email">
+                            <label class="input_label"></label>
+                        </span>
+
+                    <span class="input">
+                        <input class="input_field" type="password" placeholder="Your password" name="password" id="pass"
+                               th:field="*{userModel.password}">
+                            <label class="input_label"></label>
+                        </span>
+                    <small><a href="login.html#0">Forgot password?</a></small>
+                </div>
+                <input type="submit" class="button-box btn_1 rounded full-width add_top_60 bb" value="Login to Asmoderos">
+                <div class="text-center add_	top_10">New to Asmoderos? <strong><a href="register">Sign
+                    up!</a></strong></div>
+            </form>
+            <div class="copy">© 2020 Asmoderos</div>
+        </aside>
+    </div>
+    <!-- /login -->
+
+    <!-- COMMON SCRIPTS -->
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/common_scripts.js"></script>
+    <script src="js/scripts.js"></script>
+
+    </body>
+    </html>

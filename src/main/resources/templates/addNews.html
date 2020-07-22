@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Asmoderos | Home Page</title>
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
+    <!-- CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="icon_fonts/css/all_icons.min.css" rel="stylesheet">
+    <link href="css/addingNewsStyle.css" rel="stylesheet">
+    <link href="css/pageStyle.css" rel="stylesheet">
+    <link href="css/newsStyle.css" rel="stylesheet">
+    <link href="css/login_register.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="page">
+
+        <header class="header menu_2">
+            <!-- /Preload -->
+            <div id="preloader">
+                <div data-loader="circle-side"></div>
+            </div>
+            <!-- /Preload -->
+            <!-- Top Menu -->
+            <div id="logo">
+                <a href="admin">Asmoderos</a>
+            </div>
+            <nav id="menu" class="main-menu">
+                <ul>
+                    <li><span><a href="courses">Courses</a></span>
+                    </li>
+                    <li><span><a href="teachers">Teachers</a></span>
+                    </li>
+                    <li><span><a href="about">About University</a></span>
+                    </li>
+                    <li><span><a href="news">News</a></span>
+                    </li>
+                    <li><span><a  class="my_cabinet">My cabinet</a></span>
+                        <ul>
+                            <li><a href="registerStudent" >Add Student</a></li>
+                            <li><a href="addNews" >Add News</a></li>
+                            <li><a href="addCourse" >Add Course</a></li>
+                            <li><a href="logout" >Log out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Top Menu -->
+        </header>
+
+        <section id="hero_in" class="general">
+            <div class="wrapper">
+                <div class="container">
+                    <h1 class="fadeInUp"><span></span>Adding news</h1>
+                </div>
+            </div>
+        </section>
+    <main class="addingForm">
+        <div class="container margin_60_35">
+            <div class="row">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-8">
+                    <form class="formAddMenu" method="POST" enctype="multipart/form-data"
+                          action="/upload">
+                        <div class="login-form">
+                            <span class="input">
+					            <input class="input_field addnews" type="text" th:field="*{newsModel.title}" placeholder="Title"
+                                       autocomplete="off">
+						            <label class="input_label"></label>
+					        </span>
+                            <br/> <br/>
+                            <span class="input">
+					            <input class="input_field addnews" type="text" th:field="*{newsModel.author}"
+                                       placeholder="Author" autocomplete="off">
+						            <label class="input_label"></label>
+					        </span>
+                            <br/> <br/>
+                            Image to upload: <input type="file" name="file"><br/>
+                            <br/> <br/>
+                            <p>Text: </p>
+                            <br/> <br/>
+                            <textarea class="textOfNews" id="textareaNews"  name="text" cols="93" rows="10" th:field="*{newsModel.text}"></textarea>
+                            <!--<input class="textOfNews" type="text" name="text" th:field="*{newsModel.text}">-->
+                            <br/> <br/>
+
+                            <input type="submit" value="Upload" class ="uploadNews btn_1">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/common_scripts.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/lessons.js"></script>
+</body>
+</html>

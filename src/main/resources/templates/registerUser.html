@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Asmoderos | Student Registration</title>
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="../static/img/apple-touch-icon-57x57-precomposed.png">
+
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
+
+    <!-- BASE CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/pageStyle.css" rel="stylesheet">
+    <link href="css/login_register.css" rel="stylesheet">
+
+</head>
+
+<body id="register_bg">
+
+<nav id="menu" class="fake_menu"></nav>
+
+<div id="preloader">
+    <div data-loader="circle-side"></div>
+</div>
+<!-- End Preload -->
+
+<div id="login-form-wrapper">
+    <aside>
+        <figure>
+            <a href="index">Asmoderos</a>
+        </figure>
+        <form autocomplete="off" action="/register" method="post" id="register-form">
+            <div action="/register" method="post" class="register-form">
+
+                    <span class="input">
+					<input class="input_field" type="text" id="surname" placeholder="Surname"
+                           th:field="*{userModel.surname}">
+						<label class="input_label"></label>
+					</span>
+
+                <span class="input">
+					<input class="input_field" type="text" id="name" placeholder="Name"
+                           th:field="*{userModel.name}">
+						<label class="input_label"></label>
+					</span>
+
+                <span class="input">
+					<input class="input_field" type="text" id="lastname" placeholder="Last Name"
+                           th:field="*{userModel.lastname}">
+						<label class="input_label"></label>
+					</span>
+
+                <span class="input">
+					<input class="input_field" type="email" id="email" placeholder="Email"
+                           th:field="*{userModel.email}">
+						<label class="input_label"></label>
+					</span>
+
+                <span class="input">
+					<input class="input_field" type="password" id="password" placeholder="Password"
+                           th:field="*{userModel.password}">
+						<label class="input_label"></label>
+					</span>
+                <span class="input">
+					<input class="input_field" type="password" id="repeatPassword" placeholder="RepeatPassword"
+                           th:field="*{userModel.repeatPassword}">
+						<label class="input_label"></label>
+					</span>
+
+
+                <br><br>
+
+                <div id="pass-info" class="clearfix"></div>
+            </div>
+            <input type="submit" class="button-box btn_1 bb" value="Register to Asmoderos">
+            <div class="text-center">Already have an acccount? <strong><a href="login">Sign
+                In</a></strong></div>
+        </form>
+        <div class="copy">© 2020 Asmoderos</div>
+    </aside>
+</div>
+<!-- /login -->
+
+<!-- COMMON SCRIPTS -->
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/common_scripts.js"></script>
+<script src="js/scripts.js"></script>
+
+</body>
+</html>

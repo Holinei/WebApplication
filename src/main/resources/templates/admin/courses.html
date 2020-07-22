@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Asmoderos | Courses</title>
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
+
+    <!-- BASE CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="icon_fonts/css/all_icons.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/pageStyle.css" rel="stylesheet">
+    <link href="css/newsStyle.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="page">
+
+    <header class="header menu_2">
+        <!-- /Preload -->
+        <div id="preloader">
+            <div data-loader="circle-side"></div>
+        </div>
+        <!-- /Preload -->
+        <!-- Top Menu -->
+        <div id="logo">
+            <a href="admin">Asmoderos</a>
+        </div>
+        <nav id="menu" class="main-menu">
+            <ul>
+                <li><span><a href="courses">Courses</a></span>
+                </li>
+                <li><span><a href="teachers">Teachers</a></span>
+                </li>
+                <li><span><a href="about">About University</a></span>
+                </li>
+                <li><span><a href="news">News</a></span>
+                </li>
+                <li><span><a  class="my_cabinet">My cabinet</a></span>
+                    <ul>
+                        <li><a href="registerStudent" >Add Student</a></li>
+                        <li><a href="addNews" >Add News</a></li>
+                        <li><a href="addCourse" >Add Course</a></li>
+                        <li><a href="logout" >Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- Top Menu -->
+    </header>
+    <section id="hero_in" class="general">
+        <div class="wrapper">
+            <div class="container">
+                <h1 class="fadeInUp"><span></span>Asmoderos courses</h1>
+            </div>
+        </div>
+    </section>
+    <!--/hero_in-->
+    <main>
+
+        <div class="filters_listing sticky_horizontal">
+            <div class="container">
+                <ul class="clearfix">
+                    <li>
+
+                    </li>
+                    </li>
+                    <li>
+
+                    </li>
+                </ul>
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /filters -->
+
+        <div class="container margin_60_35">
+            <div class="row">
+                <div class="col-xl-4 col-lg-6 col-md-6" th:each="courses : ${courseList}">
+                    <div class="box_grid wow animated" style="visibility: visible;">
+                        <figure class="block-reveal">
+                            <div class="block-horizzontal"></div>
+                            <a class="wish_bt" style="cursor: pointer" th:onclick="'document.getElementById(\'formForCoursePost' + ${courses.getId()} + '\').submit(); return false;'">
+
+                            <a style="cursor: pointer" th:onclick="'document.getElementById(\'formForCoursePost' + ${courses.getId()} + '\').submit(); return false;'"><img th:src="'img/Courses/' + ${courses.getImage()}" class="img-fluid imgCourse" alt=""></a>
+                            <!--<div class="price">$54</div>-->
+                            <div class="preview"><span>
+                                            <form th:id="'formForCoursePost' + ${courses.getId()}"
+                                                  th:action="@{/course-detail(id=${courses.getId()})}" method="POST">
+                             </form> <div class="preview"><span>Preview course</span></div>
+                            </span>
+                            </div>
+                            </a>
+                        </figure>
+
+                        <div class="wrapper">
+                            <small th:text="${courses.getCategories()}"></small>
+                            <h3 th:text="${courses.getTitle()}"></h3>
+                            <p class="textCourse" th:text="${courses.getDescription()}"></p>
+                        </div>
+                        <ul>
+                            <li ><p class="price2" th:text="${courses.getPrice()}"></p><p class="price2">$</p></li>
+                            <li><a  th:onclick="'document.getElementById(\'formForCoursePost' + ${courses.getId()} + '\').submit(); return false;'" class="btn_1 buttonView rounded add_top_30">View</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /box_grid -->
+
+            </div>
+        </div>
+        <!-- /row -->
+<!-- /container -->
+<!-- /bg_color_1 -->
+</main>
+<!--/main-->
+
+<footer>
+    <div class="container margin_120_95">
+        <div class="row">
+            <div class="col-lg-5 col-md-12 p-r-5">
+                <h5>Asmoderos</h5>
+                <p> Something about Asmoderos</p>
+                <p> </p>
+
+
+            </div>
+            <div class="col-lg-3 col-md-6 ml-lg-auto">
+                <h5>Useful links</h5>
+                <ul class="links">
+                    <li><a href="courses">Courses</a></li>
+                    <li><a href="teachers">Teachers</a></li>
+                    <li><a href="about">About University</a></li>
+                    <li><a href="news">News</a></li>
+                    <li><a href="login">Login</a></li>
+                    <li><a href="register">Register</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5>Contact with Us</h5>
+                <ul class="contacts">
+                    <li><a href="tel://61280932400">Phone: + 123 45 678 9009</a></li>
+                    <li><a href="mailto:info@udema.com">Email: info.asmoderos@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--/row-->
+        <hr>
+        <div class="row">
+            <div class="col-md-8">
+                <ul id="additional_links">
+                    <li><a href="index.html#0">Terms and conditions</a></li>
+                    <li><a href="index.html#0">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <div id="copy">© 2020 Asmoderos</div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--/footer-->
+</div>
+<!-- page -->
+
+<!-- COMMON SCRIPTS -->
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/common_scripts.js"></script>
+<script src="js/scripts.js"></script>
+
+</body>
+</html>
